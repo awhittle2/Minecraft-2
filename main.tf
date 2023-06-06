@@ -44,8 +44,6 @@ resource "aws_instance" "minecraft_2" {
   associate_public_ip_address = false
   key_name = aws_key_pair.home.key_name
   user_data = <<-EOF
-  #!/bin/bash
-
   # Update system
   sudo apt-get update
 
