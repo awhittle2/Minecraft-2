@@ -32,9 +32,9 @@ resource "aws_security_group" "minecraft_sg" {
   }
 }
 
-resource "aws_key_pair" "home" {
-  key_name   = "Home"
-  public_key = file("~/.ssh/id_rsa.pub")
+resource "aws_key_pair" "minecraft_key" {
+  key_name   = "minecraft_key"
+  public_key = file("~/minecraft-2.pub")
 }
 
 resource "aws_instance" "minecraft_2" {
