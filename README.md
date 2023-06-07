@@ -20,9 +20,9 @@ Using Git/GitHub, Terraform, AWS and the AWS command line interface, and Docker!
     - Windows: [Installation Link](https://git-scm.com/download/win)
     - [Help](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
  - Terraform installed
-     - Linux - Debian-based: [Script](https://github.com/awhittle2/Minecraft-2.0/blob/linux-terraform-install.sh)
-     - Linux - RHEL-based: [Script](https://github.com/awhittle2/Minecraft-2.0/blob/linux-terraform-install2.sh)
-     - MacOS: [Script](https://github.com/awhittle2/Minecraft-2.0/blob/mac-terraform-install.sh)
+     - Linux - Debian-based: [Script](https://github.com/awhittle2/Minecraft-2.0/blob/scripts/linux-terraform-install.sh)
+     - Linux - RHEL-based: [Script](https://github.com/awhittle2/Minecraft-2.0/blob/scripts/linux-terraform-install2.sh)
+     - MacOS: [Script](https://github.com/awhittle2/Minecraft-2.0/blob/scripts/mac-terraform-install.sh)
      - Windows - Chocolatey: `choco install terraform`
      - [Help](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
  - AWC CLI installed
@@ -54,6 +54,18 @@ git clone https://github.com/awhittle2/Minecraft-2.0.git
 cd Minecraft-2.0/
 
 # Enter your AWS account details
+```
+What you'll need:
+- Your AWS Access Key ID
+- Your AWS Secret Access Key
+- Your AWS Session Token
+![where to find aws cred](./images/aws)
+
+```bash
+# Replace the underscores with your AWS credentials
+export AWS_ACCESS_KEY_ID=___
+export AWS_SECRET_ACCESS_KEY=___
+export AWS_SESSION_TOKEN=___
 
 # Make sure that main.tf is there
 ls
