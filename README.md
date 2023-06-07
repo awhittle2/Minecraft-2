@@ -21,8 +21,9 @@ Using Git/GitHub, Terraform, AWS and the AWS command line interface, and Docker!
     - Windows: [Installation Link](https://git-scm.com/download/win)
     - [Help](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
  - Terraform installed
-     - Linux: [Script](https://github.com/awhittle2/Minecraft-2.0/linux-terraform-install.sh)
-     - MacOS: [Script](https://github.com/awhittle2/Minecraft-2.0/mac-terraform-install.sh)
+     - Linux - Debian-based: [Script](https://github.com/awhittle2/Minecraft-2.0/blob/linux-terraform-install.sh)
+     - Linux - RHEL-based: [Script](https://github.com/awhittle2/Minecraft-2.0/blob/linux-terraform-install2.sh)
+     - MacOS: [Script](https://github.com/awhittle2/Minecraft-2.0/blob/mac-terraform-install.sh)
      - Windows - Chocolatey: `choco install terraform`
      - [Help](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
  - AWC CLI installed
