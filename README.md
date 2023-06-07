@@ -39,11 +39,11 @@ Using Git/GitHub, Terraform, AWS and the AWS command line interface, and Docker!
 
 ## Diagram of My Steps
 
-![image of my steps](image.png)
+![image of my steps](my-diagram.png)
 
 ## Diagram of Your Steps
 
-![image of your steps](image2.png)
+![image of your steps](your-diagram.png)
 
 ## List of Commands to Run
 
