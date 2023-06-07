@@ -13,12 +13,12 @@ provider "aws" {
   region = "us-west-2"
 }
 
-resource "aws_key_pair" "minecraft_key" {
-  key_name = "minecraft_key"
+resource "aws_key_pair" "minecraft_key_3" {
+  key_name = "minecraft_key_3"
   public_key = file("~/minecraft-2.pub")
 }
 
-resource "aws_security_group" "minecraft_sg" {
+resource "aws_security_group" "minecraft_sg_3" {
   ingress {
     from_port   = 25565
     to_port     = 25565
@@ -38,16 +38,16 @@ resource "aws_security_group" "minecraft_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags = {
-    Name = "Minecraft-2"
+    Name = "Minecraft-3"
   }
 }
 
-resource "aws_instance" "minecraft_2" {
+resource "aws_instance" "minecraft_3" {
   ami           = "ami-03f65b8614a860c29"
   instance_type = "t3.small"
-  vpc_security_group_ids = [aws_security_group.minecraft_sg.id]
+  vpc_security_group_ids = [aws_security_group.minecraft_sg_3.id]
   associate_public_ip_address = true
-  key_name = aws_key_pair.minecraft_key.key_name
+  key_name = aws_key_pair.minecraft_key_3.key_name
   user_data = <<-EOF
   #!/bin/bash
   # Update system
@@ -114,18 +114,24 @@ resource "aws_instance" "minecraft_2" {
   WantedBy=multi-user.target
   SYSTEMD_SERVICE'
 
-  # Wait for 5 minutes
-  sleep 300
+  # Wait for 3.5 minutes
+  sleep 210
 
   # Enable and start the service
   sudo systemctl enable minecraft
   sudo systemctl start minecraft
 EOF
   tags = {
-    Name = "Minecraft-2"
+    Name = "Minecraft-3"
   }
 }
 
 output "instance_ip_addr" {
-  value = aws_instance.minecraft_2.public_ip
+  value = aws_instance.minecraft_3.public_ip
+  description = "The public ip address of the instance"
+}
+
+output "instance_id" {
+  value = aws_instance.minecraft_3.id
+  description = "The ID of the instance"
 }
