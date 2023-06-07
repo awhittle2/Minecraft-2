@@ -22,8 +22,8 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 sudo apt-get install docker-compose
 
 # Setup Minecraft directory
-mkdir minecraft_directory
-cd minecraft_directory
+mkdir /home/ubuntu/minecraft_directory
+cd /home/ubuntu/minecraft_directory
 
 # Create docker-compose.yml file
 cat << EOF > docker-compose.yml
@@ -44,4 +44,4 @@ services:
 EOF
 
 # Start the server
-docker-compose up -d
+sudo docker-compose up -d
