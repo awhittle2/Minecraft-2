@@ -1,12 +1,12 @@
 # Minecraft-2.0
-## Video Link: https://clipchamp.com/watch/CCHYsbnp36w
+## [Video Link](https://clipchamp.com/watch/CCHYsbnp36w
 ## Background
 
-### What will we do?
+### What Will We Do?
 
 Make a Minecraft server using an AWS account that is able to auto reboot and shutdown with systemd services
 
-### How will we do it?
+### How Will We Do it?
 
 Using Git/GitHub, Terraform, AWS and the AWS command line interface, and Docker!
 
@@ -34,9 +34,19 @@ Using Git/GitHub, Terraform, AWS and the AWS command line interface, and Docker!
                sudo installer -pkg AWSCLIV2.pkg -target /`
      - Windows: `msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi`
      - [Help](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+ - A Minecraft Client
+     - Note: This will still work without one, however, you wouldn't be able to play minecraft without it!
 
-## Diagram of major steps in the pipeline
+## Diagram of My Steps
 
-## List of commands to run
+![image of my steps](image.png)
+
+## Diagram of Your Steps
+
+![image of your steps](image2.png)
+
+## List of Commands to Run
+
+## Explanation of Terraform Script
 
 ## How to connect to the Minecraft server once it's running?
