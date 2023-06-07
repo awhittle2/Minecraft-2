@@ -10,8 +10,12 @@ terraform {
 }
 
 provider "aws" {
-  profile = "default"
   region = "us-west-2"
+}
+
+resource "aws_key_pair" "minecraft_key" {
+  key_name = "minecraft_key"
+  public_key = file("~/minecraft-2.pub")
 }
 
 resource "aws_security_group" "minecraft_sg" {
@@ -27,23 +31,25 @@ resource "aws_security_group" "minecraft_sg" {
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+  egress {
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
   tags = {
     Name = "Minecraft-2"
   }
-}
-
-resource "aws_key_pair" "minecraft_key" {
-  key_name   = "minecraft_key"
-  public_key = file("~/minecraft-2.pub")
 }
 
 resource "aws_instance" "minecraft_2" {
   ami           = "ami-03f65b8614a860c29"
   instance_type = "t3.small"
   vpc_security_group_ids = [aws_security_group.minecraft_sg.id]
-  associate_public_ip_address = false
-  key_name = aws_key_pair.home.key_name
+  associate_public_ip_address = true
+  key_name = aws_key_pair.minecraft_key.key_name
   user_data = <<-EOF
+  #!/bin/bash
   # Update system
   sudo apt-get update
 
@@ -60,14 +66,14 @@ resource "aws_instance" "minecraft_2" {
   sudo apt-get update
 
   # Install Docker Engine
-  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+  sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
   # Install Docker Compose
-  sudo apt-get install docker-compose
+  sudo apt-get install -y docker-compose
 
   # Setup Minecraft directory
-  mkdir minecraft_directory
-  cd minecraft_directory
+  mkdir /home/ubuntu/minecraft_directory
+  cd /home/ubuntu/minecraft_directory
 
   # Create docker-compose.yml file
   cat << DOCKER_COMPOSE > docker-compose.yml
@@ -87,8 +93,8 @@ resource "aws_instance" "minecraft_2" {
           - ./minecraft-data:/data
   DOCKER_COMPOSE
   # Start the server
-  docker-compose up -d
-  
+  sudo docker-compose up -d
+
   # Create systemd service
   sudo bash -c 'cat > /etc/systemd/system/minecraft.service << SYSTEMD_SERVICE
   [Unit]
@@ -107,7 +113,7 @@ resource "aws_instance" "minecraft_2" {
   [Install]
   WantedBy=multi-user.target
   SYSTEMD_SERVICE'
-  
+
   # Wait for 5 minutes
   sleep 300
 
@@ -118,11 +124,6 @@ EOF
   tags = {
     Name = "Minecraft-2"
   }
-}
-
-resource "aws_eip" "minecraft_eip" {
-  instance = aws_instance.minecraft_2.id
-  vpc      = true
 }
 
 output "instance_ip_addr" {
