@@ -1,15 +1,13 @@
 #!/bin/bash
 
-# Note this file is not used by terraform, but the code inside it is
-
 # Update system
 sudo apt-get update
 
 # Install dependencies
-sudo apt-get install -y ca-certificates curl gnupg
+sudo apt-get install ca-certificates curl gnupg
 
 # Setup Docker repository
-sudo install -y -m 0755 -d /etc/apt/keyrings
+sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
 echo "deb [arch=\"$(dpkg --print-architecture)\" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo \"$VERSION_CODENAME\") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
@@ -18,14 +16,14 @@ echo "deb [arch=\"$(dpkg --print-architecture)\" signed-by=/etc/apt/keyrings/doc
 sudo apt-get update
 
 # Install Docker Engine
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Install Docker Compose
-sudo apt-get install -y docker-compose
+sudo apt-get install docker-compose
 
 # Setup Minecraft directory
-mkdir /home/ubuntuminecraft_directory
-cd /home/ubuntu/minecraft_directory
+mkdir minecraft_directory
+cd minecraft_directory
 
 # Create docker-compose.yml file
 cat << EOF > docker-compose.yml
@@ -46,4 +44,4 @@ services:
 EOF
 
 # Start the server
-sudo docker-compose up -d
+docker-compose up -d
