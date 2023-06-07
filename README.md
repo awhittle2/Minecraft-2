@@ -1,5 +1,4 @@
-# Minecraft-2.0
-## [Video Link](https://clipchamp.com/watch/CCHYsbnp36w
+# Minecraft-2.0 - [Video Link](https://clipchamp.com/watch/CCHYsbnp36w)
 ## Background
 
 ### What Will We Do?
@@ -39,14 +38,47 @@ Using Git/GitHub, Terraform, AWS and the AWS command line interface, and Docker!
 
 ## Diagram of My Steps
 
-![image of my steps](my-diagram.png)
+![image of my steps](images/my-diagram.png)
 
 ## Diagram of Your Steps
 
-![image of your steps](your-diagram.png)
-
-## List of Commands to Run
+![image of your steps](images/your-diagram.png)
 
 ## Explanation of Terraform Script
 
+## List of Commands to Run
+
+```bash
+# Clone the repository
+git clone https://github.com/awhittle2/Minecraft-2.0.git
+cd Minecraft-2.0/
+
+# Enter your AWS account details
+
+# Make sure that main.tf is there
+ls
+
+# Initialize the terraform prjoect
+terraform init
+
+# Apply the changes
+terraform apply
+
+# Wait about 5 minutes for it to create the instance and run the set-up script
+```
+
 ## How to connect to the Minecraft server once it's running?
+
+1. Load up your Minecraft client
+3. Click on `Multiplayer`
+   [!load minecraft](images/minecraft-multiplayer.png)
+5. Select `Add Server`
+   [!server page](images/minecraft-add-server.png)
+7. Under `Server Address` enter in the ip address that the terraform script outputted with `:25565` afterwards
+   [!add server page](images/minecraft-server-address.png)
+9. Click `Done`
+10. Wait until Minecraft is able to connect
+    [!minecraft connection](images/minecraft-connection.png)
+12. Click `Join Server`
+    [!join server](images/minecraft-join.png)
+14. Have fun!
