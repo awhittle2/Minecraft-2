@@ -59,7 +59,13 @@ What you'll need:
 - Your AWS Access Key ID
 - Your AWS Secret Access Key
 - Your AWS Session Token
-![where to find aws cred](./images/aws.png)
+
+Where to go to find it:
+1. Start your Learner Lab
+2. Click `AWS Details`
+3. Click `AWS CLI: Show`
+
+![where to find aws creds](./images/aws.png)
 
 ```bash
 # Replace the underscores with your AWS credentials
