@@ -71,14 +71,14 @@ terraform apply
 
 1. Load up your Minecraft client
 3. Click on `Multiplayer`
-   [!load minecraft](./images/minecraft-multiplayer.png)
+   ![load minecraft](./images/minecraft-multiplayer.png)
 5. Select `Add Server`
-   [!server page](./images/minecraft-add-server.png)
+   ![server page](./images/minecraft-add-server.png)
 7. Under `Server Address` enter in the ip address that the terraform script outputted with `:25565` afterwards
-   [!add server page](./images/minecraft-server-address.png)
+   ![add server page](./images/minecraft-server-address.png)
 9. Click `Done`
 10. Wait until Minecraft is able to connect
-    [!minecraft connection](./images/minecraft-connection.png)
+    ![minecraft connection](./images/minecraft-connection.png)
 12. Click `Join Server`
-    [!join server](./images/minecraft-join.png)
+    ![join server](./images/minecraft-join.png)
 14. Have fun!
