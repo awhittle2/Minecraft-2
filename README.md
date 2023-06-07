@@ -59,7 +59,7 @@ What you'll need:
 - Your AWS Access Key ID
 - Your AWS Secret Access Key
 - Your AWS Session Token
-![where to find aws cred](./images/aws)
+![where to find aws cred](./images/aws.png)
 
 ```bash
 # Replace the underscores with your AWS credentials
